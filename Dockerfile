@@ -1,11 +1,20 @@
 ### DOCKERFILE for building containers
 
 FROM ubuntu:14.04
+
+##----------------------Build Ubuntu container with docker installed
+
+RUN apt-get update && apt-get install -y curl wget
+RUN wget -qO- https://get.docker.com/ |sh
+RUN useradd -d /home/docker -s /bin/bash -m -g docker docker
+RUN service docker start
+##----------------------ARG working, STOPSIGNAL needs to be understood
+
 #ARG file
 #ARG var
-COPY volume/userdata/ /userdata/
+#COPY volume/userdata/ /userdata/
 #RUN if  grep kill /userdata/$file; then STOPSIGNAL 9; fi
-RUN echo "Looks like I am not killed " /userdata/killstatus
+#RUN echo "Looks like I am not killed " /userdata/killstatus
 
 
 ##-----------------------Created image with ONBUILD 
