@@ -1,0 +1,2 @@
+docker ps -qa |xargs docker stop 2>&1
+docker ps -a

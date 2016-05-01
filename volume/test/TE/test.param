@@ -1,0 +1,2 @@
+#This is a test if the param file is being read by the image runtime
+export NAME=Manoj
