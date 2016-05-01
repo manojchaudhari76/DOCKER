@@ -3,7 +3,7 @@
 FROM ubuntu:14.04
 #ARG file
 #ARG var
-COPY userdata/ /userdata/
+COPY volume/userdata/ /userdata/
 #RUN if  grep kill /userdata/$file; then STOPSIGNAL 9; fi
 RUN echo "Looks like I am not killed " /userdata/killstatus
 
