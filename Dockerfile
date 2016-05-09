@@ -1,11 +1,21 @@
 ### DOCKERFILE for building containers
 
 FROM ubuntu:14.04
+
+
+##----------------------verify different logging drivers runtime '--log-driver'
+ENTRYPOINT ping 0.0.0.0 -c 50
+
+##----------------------Check runtime variable setting using '-e'
+#COPY userdata/information.sh /userdata/
+#ENTRYPOINT information.sh $GUEST $TOWN
+##----------------------ARG working, STOPSIGNAL needs to be understood
+
 #ARG file
 #ARG var
-COPY volume/userdata/ /userdata/
+#COPY volume/userdata/ /userdata/
 #RUN if  grep kill /userdata/$file; then STOPSIGNAL 9; fi
-RUN echo "Looks like I am not killed " /userdata/killstatus
+#RUN echo "Looks like I am not killed " /userdata/killstatus
 
 
 ##-----------------------Created image with ONBUILD 
