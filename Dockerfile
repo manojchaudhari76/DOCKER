@@ -2,12 +2,13 @@
 
 FROM ubuntu:14.04
 
-##----------------------Build Ubuntu container with docker installed
 
-RUN apt-get update && apt-get install -y curl wget
-RUN wget -qO- https://get.docker.com/ |sh
-RUN useradd -d /home/docker -s /bin/bash -m -g docker docker
-CMD service docker start
+##----------------------verify different logging drivers runtime '--log-driver'
+ENTRYPOINT ping 0.0.0.0 -c 50
+
+##----------------------Check runtime variable setting using '-e'
+#COPY userdata/information.sh /userdata/
+#ENTRYPOINT information.sh $GUEST $TOWN
 ##----------------------ARG working, STOPSIGNAL needs to be understood
 
 #ARG file
